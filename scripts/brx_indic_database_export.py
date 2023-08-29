@@ -5,11 +5,16 @@
 import mysql.connector
 import hashlib
 import tqdm
+from dotenv import load_dotenv
+load_dotenv()
+import os
+password = os.getenv("PASSWORD")
+
 mydb = mysql.connector.connect(
   host="localhost",
   user="sn",
-  password="Cit@Kokrajhar#123",
-   database="bpcc"
+  password=password,
+  database="bpcc"
 )
 mycursor = mydb.cursor()
 domains=['daily','ilci','wiki']
