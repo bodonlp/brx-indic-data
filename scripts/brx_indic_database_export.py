@@ -6,7 +6,7 @@ import mysql.connector
 import hashlib
 import tqdm
 import os
-from .settings import password
+from settings import password
 mydb = mysql.connector.connect(
   host="localhost",
   user="sn",
@@ -40,8 +40,8 @@ def update_indic(hash_val, eng, indic_lang):
     
     mydb.commit()
 for domain in domains:
-    english_path = indic_path + domain + "\\" + lang_pair + "\\"  + lang_one
-    indic_lang_path = indic_path + domain + "\\" + lang_pair + "\\"+ lang_two
+    english_path = indic_path + domain + "\\" + lang_pair + "\\train."  + lang_one
+    indic_lang_path = indic_path + domain + "\\" + lang_pair + "\\train."+ lang_two
     with open(indic_lang_path, 'r', encoding="utf8") as f, open(english_path, 'r', encoding="utf8") as e:
         bodo = f.readlines()
         english = e.readlines()
