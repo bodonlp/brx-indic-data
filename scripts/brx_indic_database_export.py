@@ -50,8 +50,8 @@ for domain in domains:
             brx = bodo[i].strip()
             eng = english[i].strip()
             # for newly created database
-            #insert_indic(eng, eng, brx)
+            insert_indic(eng, eng, brx)
             # for updating database
-            update_indic(eng, eng, brx)
+            #update_indic(eng, eng, brx)
         
 
