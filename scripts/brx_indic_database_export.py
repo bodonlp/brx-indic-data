@@ -52,6 +52,9 @@ for domain in domains:
         for i in tqdm.tqdm(range(len(bodo))):
             brx = bodo[i].strip()
             eng = english[i].strip()
-            insert_indic(eng, eng, brx)
+            # for newly created database
+            #insert_indic(eng, eng, brx)
+            # for updating database
+            update_indic(eng, eng, brx)
         
 
