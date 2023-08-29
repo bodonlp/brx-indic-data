@@ -4,3 +4,4 @@ ilci
 wiki
 scripts/.env
 scripts/settings.py
+scripts/__pycache__/settings.cpython-310.pyc
