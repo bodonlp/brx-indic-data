@@ -5,10 +5,11 @@
 import mysql.connector
 import hashlib
 import tqdm
-from dotenv import load_dotenv
-load_dotenv()
 import os
-password = os.getenv("PASSWORD")
+from dotenv import load_dotenv
+
+load_dotenv('.env')
+password = os.getenv('PASSWORD')
 
 mydb = mysql.connector.connect(
   host="localhost",
