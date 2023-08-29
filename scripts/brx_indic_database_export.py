@@ -1,7 +1,34 @@
 # conda activate py310
 # python brx_indic_database_export.py
 # Desktop Machine at Cabin
-
+"""
+create table brx_indic (
+id int not null auto_increment primary key,
+hash varchar(300),
+eng_Ltn text,
+brx_Deva text,
+asm_Beng text,
+ben_Beng text,
+doi_Deva text,
+gom_Gujr text,
+hin_Deva text,
+kan_Knda text,
+kas_Arab text,
+mai_Deva text,
+mal_Mlym text,
+mar_Deva text,
+mni_Beng text,
+mni_Mtei text,
+npi_Deva text,
+ory_Orya text,
+pan_Guru text,
+san_Deva text,
+sat_Olck text,
+tam_Taml text,
+tel_Telu text,
+urd_Arab text
+)
+"""
 import mysql.connector
 import hashlib
 import tqdm
@@ -15,7 +42,8 @@ mydb = mysql.connector.connect(
 )
 mycursor = mydb.cursor()
 domains=['daily','ilci','wiki']
-lang_pair = "eng_Latn-brx_Deva"
+lang_pair = "eng_Latn-asm_Beng"
+target_field=lang_pair.split("-")[1]
 lang_one = lang_pair.split("-")[0]
 lang_two = lang_pair.split("-")[1]
 indic_path = "E:\\bpcc\\"
@@ -30,7 +58,7 @@ def insert_indic(hash_val, eng, indic_lang):
     
     mydb.commit()
 def update_indic(hash_val, eng, indic_lang):
-    sql = "UPDATE brx_indic SET asm = %s WHERE hash = %s AND eng = %s"
+    sql = "UPDATE brx_indic SET "+target_field+" = %s WHERE hash = %s AND eng = %s"
     
     hash = hashlib.sha256(hash_val.encode('utf-8')).hexdigest()
     eng = eng
@@ -50,8 +78,8 @@ for domain in domains:
             brx = bodo[i].strip()
             eng = english[i].strip()
             # for newly created database
-            insert_indic(eng, eng, brx)
+            #insert_indic(eng, eng, brx)
             # for updating database
-            #update_indic(eng, eng, brx)
+            update_indic(eng, eng, brx)
         
 
