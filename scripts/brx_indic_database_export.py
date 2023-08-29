@@ -19,6 +19,8 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 domains=['daily','ilci','wiki']
 lang_pair = "eng_Latn-brx_Deva"
+lang_one = lang_pair.split("-")[0]
+lang_two = lang_pair.split("-")[1]
 indic_path = "E:\\bpcc\\"
 def insert_indic(hash_val, eng, indic_lang):
     sql = "INSERT INTO brx_indic (hash, eng, brx) VALUES (%s, %s, %s)"
@@ -41,9 +43,9 @@ def update_indic(hash_val, eng, indic_lang):
     
     mydb.commit()
 for domain in domains:
-    bodo_path = indic_path + domain + "\\" + lang_pair + "\\train.brx_Deva"
-    english_path = indic_path + domain + "\\" + lang_pair + "\\train.eng_Latn"
-    with open(bodo_path, 'r', encoding="utf8") as f, open(english_path, 'r', encoding="utf8") as e:
+    english_path = indic_path + domain + "\\" + lang_pair + "\\"  + lang_one
+    indic_lang_path = indic_path + domain + "\\" + lang_pair + "\\"+ lang_two
+    with open(indic_lang_path, 'r', encoding="utf8") as f, open(english_path, 'r', encoding="utf8") as e:
         bodo = f.readlines()
         english = e.readlines()
         # use tqdm to get progress bar
