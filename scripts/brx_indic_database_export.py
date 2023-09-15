@@ -27,7 +27,7 @@ sat_Olck text,
 tam_Taml text,
 tel_Telu text,
 urd_Arab text
-)
+);
 """
 import mysql.connector
 import hashlib
