@@ -7,3 +7,8 @@ scripts/settings.py
 scripts/__pycache__/settings.cpython-310.pyc
 brx_indic.zip
 wordnet
+bpcc*.zip
+brx_*
+indic_*
+flores_dev
+IN22*
