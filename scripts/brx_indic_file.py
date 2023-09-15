@@ -2,12 +2,9 @@
 # python brx_indic_database_export.py
 # Desktop Machine at Cabin
 
-
 import hashlib
 import tqdm
 import os
-
-
 domains=['daily','ilci','wiki']
 lan_pairs = [
     "eng_Latn-brx_Deva",
@@ -84,10 +81,3 @@ for domain in domains:
                                 ifile.write(ind + "\n")
                     else:
                         continue
-                    #print(eng, brx)
-                    # for newly created database
-                    #insert_indic(eng, eng, brx)
-                    # for updating database
-        
-               
-
