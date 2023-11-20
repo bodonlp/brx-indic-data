@@ -4,7 +4,9 @@ ilci
 wiki
 scripts/.env
 scripts/settings.py
-scripts/__pycache__/settings.cpython-310.pyc
+scripts/__pycache__
+exp_CSV
+scripts/lang_pairs.txt
 brx_indic.zip
 wordnet
 bpcc*.zip
